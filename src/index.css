@@ -2,41 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
+/* Portfolio Design System - 60-30-10 Color Rule */
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    /* Core palette */
+    --tangerine: 33 88% 53%;        /* Dominant #f08c21 */
+    --butter: 51 70% 76%;           /* Secondary #f2d88f */
+    --blush: 338 66% 71%;           /* Accent #e36888 */
+    --sea: 218 48% 60%;             /* Accent #6696cc */
+    --match-green: 61 48% 46%;      /* Highlight #b4b534 */
+    
+    /* Light theme */
+    --background: 0 0% 98%;
+    --foreground: 240 10% 15%;
+    
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 240 10% 15%;
+    
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --popover-foreground: 240 10% 15%;
+    
+    --primary: var(--tangerine);
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: var(--butter);
+    --secondary-foreground: 240 10% 15%;
+    
+    --muted: 51 20% 95%;
+    --muted-foreground: 240 5% 45%;
+    
+    --accent: var(--blush);
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 51 20% 90%;
+    --input: 51 20% 90%;
+    --ring: var(--tangerine);
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--tangerine)), hsl(var(--butter)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--butter)/0.3), hsl(var(--tangerine)/0.1));
+    --gradient-accent: linear-gradient(90deg, hsl(var(--blush)), hsl(var(--sea)));
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +115,116 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', 'Arial', sans-serif;
   }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Georgia', serif;
+  }
+}
+
+@layer components {
+  /* Hero animations */
+  .animate-hero-slide {
+    animation: heroSlide 1s ease-out forwards;
+  }
+  
+  .animate-typing {
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+    border-right: 3px solid hsl(var(--tangerine));
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  /* Interactive elements */
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px hsl(var(--tangerine)/0.2);
+  }
+  
+  .hover-wiggle:hover {
+    animation: wiggle 0.6s ease-in-out;
+  }
+  
+  .scroll-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .scroll-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Timeline */
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: hsl(var(--tangerine));
+    border: 3px solid hsl(var(--background));
+    box-shadow: 0 0 0 3px hsl(var(--tangerine)/0.3);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .bg-gradient-accent {
+    background: var(--gradient-accent);
+  }
+}
+
+/* Keyframes */
+@keyframes heroSlide {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: hsl(var(--tangerine)); }
+}
+
+@keyframes wiggle {
+  0%, 7% { transform: rotateZ(0); }
+  15% { transform: rotateZ(-15deg); }
+  20% { transform: rotateZ(10deg); }
+  25% { transform: rotateZ(-10deg); }
+  30% { transform: rotateZ(6deg); }
+  35% { transform: rotateZ(-4deg); }
+  40%, 100% { transform: rotateZ(0); }
 }

@@ -61,7 +61,16 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				tangerine: 'hsl(var(--tangerine))',
+				butter: 'hsl(var(--butter))',
+				blush: 'hsl(var(--blush))',
+				sea: 'hsl(var(--sea))',
+				'match-green': 'hsl(var(--match-green))'
+			},
+			fontFamily: {
+				'serif': ['Georgia', 'serif'],
+				'sans': ['Inter', 'Arial', 'sans-serif']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
