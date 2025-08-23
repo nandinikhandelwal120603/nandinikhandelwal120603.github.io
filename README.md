@@ -1,26 +1,20 @@
-# Welcome to your Lovable project
+
+
+# Welcome to your Portfolio Project
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/1b11272a-9290-46ee-b861-54120b616a85
+**Live URL**: [https://nandinikhandelwal120603.github.io/](https://nandinikhandelwal120603.github.io/)
+
+This is a personal portfolio website built to showcase skills, experience, projects, and contact information.
+
+---
 
 ## How can I edit this code?
 
-There are several ways of editing your application.
+You can edit the project in multiple ways depending on your workflow:
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/1b11272a-9290-46ee-b861-54120b616a85) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+### **1. Work Locally with your IDE**
 
 ```sh
 # Step 1: Clone the repository using the project's Git URL.
@@ -30,44 +24,112 @@ git clone <YOUR_GIT_URL>
 cd <YOUR_PROJECT_NAME>
 
 # Step 3: Install the necessary dependencies.
-npm i
+npm install
 
 # Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### **2. Edit Directly in GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+* Navigate to the file you want to edit.
+* Click the **Edit** button (pencil icon) at the top right.
+* Commit changes directly to the repository.
 
-**Use GitHub Codespaces**
+### **3. Use GitHub Codespaces**
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+* Go to the repository on GitHub.
+* Click the green **Code** button → **Codespaces** tab.
+* Launch a new Codespace to edit and run the project in the cloud.
 
-## What technologies are used for this project?
+---
+
+## Tech Stack
 
 This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+* **Vite**
+* **TypeScript**
+* **React**
+* **shadcn-ui**
+* **Tailwind CSS**
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/1b11272a-9290-46ee-b861-54120b616a85) and click on Share -> Publish.
+## Deployment
 
-## Can I connect a custom domain to my Lovable project?
+The portfolio is deployed with **GitHub Pages**.
 
-Yes, you can!
+To publish changes:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```sh
+npm run build
+npm run deploy
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+---
+
+## Custom Domain
+
+If you want to connect a custom domain (e.g., `yourname.com`), go to your **GitHub repository settings → Pages → Custom domain** and configure it with your DNS provider.
+
+---
+
+## 🔧 How to Update Sections
+
+This portfolio is modular. Each section has its own file under `src/components/`.
+
+### 1. **Skills**
+
+* **File:** `src/components/Skills.tsx`
+* **Where:** `const skillsData = [...]`
+* **How:** Add, remove, or edit skills (icon, name, description).
+* **Icons:** Imported from [Lucide Icons](https://lucide.dev/icons). Example:
+
+  ```tsx
+  { name: 'Python', icon: Python, description: 'Automation, ML, Computer Vision' }
+  ```
+
+### 2. **Experience**
+
+* **File:** `src/components/Experience.tsx`
+* **Where:** `const experiences = [...]`
+* **How:** Add each role with `role`, `company`, `period`, `location`, and `bullets`.
+
+### 3. **Projects**
+
+* **File:** `src/components/Projects.tsx`
+* **Where:** `const projectsData = [...]`
+* **How:** Add new projects with `title`, `description`, `image`, `technologies`, `githubUrl`, `liveUrl`, and `category`.
+* **Images:** Place in `public/images/projects/`.
+
+### 4. **Gallery**
+
+* **File:** `src/components/Gallery.tsx`
+* **Where:** `const galleryImages = [...]`
+* **How:** Add entries with `id`, `src`, `alt`, and `category`.
+* **Images:** Place in `public/images/gallery/`.
+
+### 5. **Hero Section**
+
+* **File:** `src/components/Hero.tsx`
+* **How:** Edit name, tagline, and background (gradient, image, or animation).
+
+### 6. **Colors**
+
+* **File:** `src/index.css` (CSS variables)
+* **How:** Change `--primary`, `--secondary`, `--accent` tokens.
+* **Note:** Tailwind config references these variables → consistent theme updates.
+
+---
+
+## 📝 Best Practices
+
+* Use **PascalCase** for components (`Hero.tsx`, `Skills.tsx`).
+* Use **kebab-case** for image files (`voice-controlled-robot.jpg`).
+* Always include **alt text** for images in projects/gallery.
+* Keep descriptions **short (1–2 lines)**.
+* Test changes with `npm run dev` before deploying.
+* Optimize images (use `.webp` when possible).
+
+
