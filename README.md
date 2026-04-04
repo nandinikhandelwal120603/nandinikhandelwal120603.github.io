@@ -1,135 +1,116 @@
 
 
-# Welcome to your Portfolio Project
+# Kaleido Folio Hub - Portfolio Project
 
-## Project info
+Welcome to the **Kaleido Folio Hub**, a professional portfolio project currently serving as the official website for **Nandini Khandelwal**. 
 
-**Live URL**: [https://nandinikhandelwal120603.github.io/](https://nandinikhandelwal120603.github.io/)
-
-This is a personal portfolio website built to showcase skills, experience, projects, and contact information.
+**Live URL:** [nandinikhandelwal120603.github.io](https://nandinikhandelwal120603.github.io/)
 
 ---
 
-## How can I edit this code?
+## 🏗️ Project Architecture (In-Depth)
 
-You can edit the project in multiple ways depending on your workflow:
+This portfolio is built as a **Single-Page Application (SPA)** using a modular component-driven architecture. Each section of the website resides in its own React component file within `src/components/`, allowing for easy isolated updates and rapid maintenance.
 
-### **1. Work Locally with your IDE**
+### Core Structure:
+- **`src/App.tsx`**: The main entry point that configures the React Router and global providers (Toasts, Tooltips, Query Client).
+- **`src/pages/Index.tsx`**: The layout orchestrator that stacks all sections (Hero, Skills, Projects, etc.) vertically on the main page.
+- **`src/components/ui/`**: Low-level accessible primitives (buttons, dialogs, etc.) based on **Radix UI** and styled with **Shadcn UI**.
 
+---
+
+## 📁 Page & Component Deep-Dive
+
+### 1. **Navigation (`src/components/Navigation.tsx`)**
+- **Function:** Handles the sticky header and mobile navigation menu.
+- **Features:** 
+  - Glassmorphic transparency that appears on scroll.
+  - Responsive hamburger menu for mobile devices.
+  - Smooth anchor-link scrolling to section IDs.
+
+### 2. **Hero Section (`src/components/Hero.tsx`)**
+- **Function:** The "first impression" above-the-fold content.
+- **Features:**
+  - **Auto-Typing Text:** Dynamically types "Robotics & AI Engineer" on page load.
+  - **Animated Background:** Multi-layer CSS gradient flow for a premium feel.
+  - **Social Integration:** Quick links to GitHub, LinkedIn, and Email.
+
+### 3. **Skills & Expertise (`src/components/Skills.tsx`)**
+- **Function:** Categorized technical toolkit visualization.
+- **Features:** 
+  - **Intersection Observer:** Components slide up and fade in only when they enter the viewport.
+  - **Categorization:** Skills are grouped by domain (Programming, AI/CV, Robotics, etc.).
+  - **Dynamic Highlighting:** Interactive hover states for each skill card.
+
+### 4. **Experience Timeline (`src/components/Experience.tsx`)**
+- **Function:** Vertical timeline of career milestones (ISRO R&D Intern).
+- **Features:**
+  - **Dot Timeline Layout:** Responsive timeline line that disappears on smaller screens for readability.
+  - **Rich Text Support:** Highlighting key keywords within bullet points.
+  - **Document Links:** Direct links to certificates (e.g., ISRO completion letter).
+
+### 5. **Projects Showcase (`src/components/Projects.tsx`)**
+- **Function:** Showcase of technical projects with descriptions, tags, and code links.
+- **Features:**
+  - **Featured Project Logic:** Capability to highlight specific high-impact projects.
+  - **Tech Stack Mapping:** Automatically renders technical tags based on an array.
+  - **Animated Cards:** Staggered entry animations as the user scrolls.
+
+### 6. **Gallery Archive (`src/components/Gallery.tsx`)**
+- **Function:** Visual portfolio of awards, life at college/ISRO, and CAD models.
+- **Features:**
+  - **Category Filtering:** Filterable grid (Awards, Robotics, CAD Models).
+  - **Lightbox Modal:** Custom modal to view images in full-screen with metadata detail.
+
+### 7. **Contact & Connectivity (`src/components/Contact.tsx`)**
+- **Function:** Unified section for outreach and social follow links.
+- **Features:** 
+  - **Direct Email Links:** Pre-configured mailto links.
+  - **Responsive Layout:** Grid-based organization for mobile vs. desktop view.
+
+---
+
+## 🛠️ How to Make Changes
+
+### Changing Text or Data
+All data is centralized at the **top of each component file**. 
+1. Open the file (e.g., `src/components/Projects.tsx`).
+2. Locate the `projectsData` constant.
+3. Edit the strings (title, description, URL) directly in the array.
+
+### Adding Images
+1. Place your new image in `public/images/gallery/` or a similar folder.
+2. Update the `galleryImages` array in `src/components/Gallery.tsx` with the new file path.
+
+### Theme & Colors
+1. Open `src/index.css`.
+2. Update the HSL values for `--primary`, `--background`, or other tokens under the `:root` selector.
+3. The entire site will update automatically due to Tailwind's variable references.
+
+---
+
+## 🚀 Development & Deployment
+
+### Local Development
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm install
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+npm install      # Install dependencies
+npm run dev      # Start local server at http://localhost:5173
 ```
 
-### **2. Edit Directly in GitHub**
-
-* Navigate to the file you want to edit.
-* Click the **Edit** button (pencil icon) at the top right.
-* Commit changes directly to the repository.
-
-### **3. Use GitHub Codespaces**
-
-* Go to the repository on GitHub.
-* Click the green **Code** button → **Codespaces** tab.
-* Launch a new Codespace to edit and run the project in the cloud.
-
----
-
-## Tech Stack
-
-This project is built with:
-
-* **Vite**
-* **TypeScript**
-* **React**
-* **shadcn-ui**
-* **Tailwind CSS**
-
----
-
-## Deployment
-
-The portfolio is deployed with **GitHub Pages**.
-
-To publish changes:
-
+### Build & Deploy
+This project uses **gh-pages** for deployment.
 ```sh
-npm run build
-npm run deploy
+npm run build    # Create production bundle in /dist
+npm run deploy   # Push build to gh-pages branch
 ```
 
 ---
 
-## Custom Domain
+## 📝 Best Practices Used
+- **TypeScript** for type safety and code clarity.
+- **Semantic HTML** (sections, headers, main) for better SEO/Accessibility.
+- **Modular Components** to prevent "Spaghetti Code."
+- **Performance Optimization** via image lazy-loading and Vite-based asset bundling.
 
-If you want to connect a custom domain (e.g., `yourname.com`), go to your **GitHub repository settings → Pages → Custom domain** and configure it with your DNS provider.
-
----
-
-## 🔧 How to Update Sections
-
-This portfolio is modular. Each section has its own file under `src/components/`.
-
-### 1. **Skills**
-
-* **File:** `src/components/Skills.tsx`
-* **Where:** `const skillsData = [...]`
-* **How:** Add, remove, or edit skills (icon, name, description).
-* **Icons:** Imported from [Lucide Icons](https://lucide.dev/icons). Example:
-
-  ```tsx
-  { name: 'Python', icon: Python, description: 'Automation, ML, Computer Vision' }
-  ```
-
-### 2. **Experience**
-
-* **File:** `src/components/Experience.tsx`
-* **Where:** `const experiences = [...]`
-* **How:** Add each role with `role`, `company`, `period`, `location`, and `bullets`.
-
-### 3. **Projects**
-
-* **File:** `src/components/Projects.tsx`
-* **Where:** `const projectsData = [...]`
-* **How:** Add new projects with `title`, `description`, `image`, `technologies`, `githubUrl`, `liveUrl`, and `category`.
-* **Images:** Place in `public/images/projects/`.
-
-### 4. **Gallery**
-
-* **File:** `src/components/Gallery.tsx`
-* **Where:** `const galleryImages = [...]`
-* **How:** Add entries with `id`, `src`, `alt`, and `category`.
-* **Images:** Place in `public/images/gallery/`.
-
-### 5. **Hero Section**
-
-* **File:** `src/components/Hero.tsx`
-* **How:** Edit name, tagline, and background (gradient, image, or animation).
-
-### 6. **Colors**
-
-* **File:** `src/index.css` (CSS variables)
-* **How:** Change `--primary`, `--secondary`, `--accent` tokens.
-* **Note:** Tailwind config references these variables → consistent theme updates.
-
----
-
-## 📝 Best Practices
-
-* Use **PascalCase** for components (`Hero.tsx`, `Skills.tsx`).
-* Use **kebab-case** for image files (`voice-controlled-robot.jpg`).
-* Always include **alt text** for images in projects/gallery.
-* Keep descriptions **short (1–2 lines)**.
-* Test changes with `npm run dev` before deploying.
-* Optimize images (use `.webp` when possible).
 
 

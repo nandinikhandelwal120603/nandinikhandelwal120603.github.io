@@ -1,0 +1,92 @@
+# KALEIDO FOLIO HUB - PROJECT DEPTH ANALYSIS
+
+## 1. PROJECT OVERVIEW
+Name: Nandini Khandelwal's Portfolio (Kaleido Folio Hub)
+Type: Single-Page Application (SPA)
+Architecture: Component-based architecture using React, Vite, and TypeScript.
+Styling: Tailwind CSS with customized HSL-based color tokens.
+Deployment: GitHub Pages (nandinikhandelwal120603.github.io)
+
+---
+
+## 2. TECHNOLOGY STACK
+- Frontend: React 18 (TypeScript)
+- Build Tool: Vite
+- Icons: Lucide React
+- UI Components: Radix UI (accessible primitives) & Shadcn UI (styled components)
+- Animation: standard CSS animations + Tailwind "animate-" classes
+- Routing: React Router DOM (v6)
+- Data Fetching: TanStack Query (React Query)
+- Forms: React Hook Form + Zod (prepared for contact forms)
+
+---
+
+## 3. PAGE-BY-PAGE DEPTH ANALYSIS
+
+### [PAGE] Index.tsx (The Master Controller)
+- Location: src/pages/Index.tsx
+- Functionality: Serves as the primary viewport. It orchestrates the vertical layout by mounting each sub-component in sequence.
+- Key Logic: Implements a global "smooth scroll" effect via useEffect on document.documentElement.
+
+### [COMPONENT] Navigation.tsx (The Logic Hub)
+- Location: src/components/Navigation.tsx
+- Logic Depth: 
+  - Uses state to toggle mobile menu visibility.
+  - Monitors window scroll event to apply a glassmorphism effect (sticky navbar) once the user scrolls beyond 20px.
+  - High-precision navigation links that scroll to specific section IDs.
+
+### [COMPONENT] Hero.tsx (The Identity Section)
+- Location: src/components/Hero.tsx
+- Logic Depth:
+  - Typing Animation: Uses `setTimeout` and `useState` to cycle through the letters of "Robotics & AI Engineer" one by one.
+  - Background: Complex multi-layered gradient with "animate-gradient-flow" CSS animation.
+  - Interaction: Call-to-action buttons that trigger smooth-scroll functions to 'projects' and 'contact' sections.
+
+### [COMPONENT] Skills.tsx (The Technical Catalog)
+- Location: src/components/Skills.tsx
+- Logic Depth:
+  - Intersection Observer: Uses the browser's Intersection Observer API to detect when each skill card enters the viewport, triggering a "fade-in & slide-up" animation.
+  - Categorization: Skills are grouped by domain (e.g., Programming, AI, CAD).
+  - Hover Effects: Dynamic color shifts and scaling on hover to emphasize expertise.
+
+### [COMPONENT] Experience.tsx (The Career Timeline)
+- Location: src/components/Experience.tsx
+- Logic Depth:
+  - Timeline Visual: A vertical line with "timeline dots" that are hidden on mobile and visible on desktop.
+  - Data Driven: All work details (ISRO R&D Internship) are mapped from the `experienceData` constant.
+  - Dynamic Content: Uses `dangerouslySetInnerHTML` to allow bolding and formatting within bullet points.
+
+### [COMPONENT] Projects.tsx (The Portfolio Gallery)
+- Location: src/components/Projects.tsx
+- Logic Depth:
+  - Featured Logic: Specific projects can be flagged as `featured: true` to adjust their layout/styling.
+  - Tech Tags: Automatically maps and displays technology tags for each project.
+  - Animation: Similar to Skills, it uses Intersection Observer for staggered entry animations based on index.
+
+### [COMPONENT] Gallery.tsx (The Visual Archive)
+- Location: src/components/Gallery.tsx
+- Logic Depth:
+  - Filtering Engine: Allows users to filter images by category (All, Awards, College Life, Robotics, CAD Models) using state-based filtering.
+  - Lightbox System: Implements a custom modal/lightbox that opens when an image is clicked, disabling background scroll and providing a zoomed-in view with metadata.
+  - Asset Management: References local images from the `/images/gallery/` public directory.
+
+### [COMPONENT] Contact.tsx (The Communication Interface)
+- Location: src/components/Contact.tsx
+- Logic Depth:
+  - Data Mapping: Centralizes contact info (Email, Location) and social links.
+  - Responsive Grid: Adapts from a single-column layout on mobile to a two-column grid on desktop.
+  - Visual Feedback: Heavy use of hover-scale and background transitions for engagement.
+
+---
+
+## 4. ASSET STRUCTURE (public/ folder)
+- images/
+  - gallery/: Contains all physical images for the gallery and hero sections (e.g., main.jpg, isro.JPG).
+- files/: Intended for documentation likes PDFs (e.g., completion_certificate.pdf).
+
+---
+
+## 5. MAINTENANCE & CHANGES
+- To update text: Locating the `const data = [...]` block at the top of the respective component file and modifying the strings.
+- To update colors: Modify `src/index.css` under the `:root` and `.dark` selectors.
+- To add a section: Create a new .tsx file in `src/components`, import it in `src/pages/Index.tsx`, and add it to the `<main>` tag.

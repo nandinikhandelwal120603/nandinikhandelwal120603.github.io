@@ -7,20 +7,6 @@ import { Button } from '@/components/ui/button';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 
 const Hero = () => {
-  const [displayText, setDisplayText] = useState('');
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const fullText = "Robotics & AI Engineer";
-
-  useEffect(() => {
-    if (currentIndex < fullText.length) {
-      const timeout = setTimeout(() => {
-        setDisplayText(fullText.slice(0, currentIndex + 1));
-        setCurrentIndex(currentIndex + 1);
-      }, 120);
-      return () => clearTimeout(timeout);
-    }
-  }, [currentIndex, fullText]);
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: 'smooth' });
@@ -43,21 +29,15 @@ const Hero = () => {
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 grid grid-cols-1 md:grid-cols-2 items-center gap-12">
         {/* Text Section */}
         <div className="text-left">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-black">
+          <h1 className="text-5xl md:text-7xl font-bold mb-8 text-black">
             <span className="text-[#f7838d]">Nandini Khandelwal</span>
           </h1>
 
-          <div className="h-16 flex items-center mb-8">
-            <h2 className="text-2xl md:text-4xl font-light text-black">
-              {displayText}
-              <span className="animate-pulse text-[#f7838d]">|</span>
-            </h2>
-          </div>
-
           <p className="text-lg md:text-xl text-black/80 mb-12 max-w-xl leading-relaxed hover:text-[#f7838d] transition-colors">
-            Passionate robotics and AI engineer focused on autonomous systems, computer vision,
-            and intelligent automation. Blending creativity with technical depth to build
-            human-centric, high-impact tech.
+            I design and build intelligent systems from autonomous robots to multi-agent AI workflows.
+            Focused on turning complex real-world problems into scalable, automated solutions that operate with precision.
+            <br /><br />
+            Blending engineering, AI, and product thinking to create systems that don’t just respond they execute.
           </p>
 
           {/* Buttons */}
@@ -67,7 +47,7 @@ const Hero = () => {
               className="bg-[#f7838d] text-black hover:bg-[#ff9aad] hover:shadow-[0_0_25px_rgba(247,131,141,0.6)] hover:scale-105 transition-transform px-8 py-6 text-lg font-semibold"
               onClick={() => scrollToSection('projects')}
             >
-              View My Work
+              Explore My Systems
             </Button>
             <Button
               variant="outline"
@@ -75,7 +55,7 @@ const Hero = () => {
               className="border-2 border-[#f7838d] text-black hover:bg-[#f7838d] hover:text-white hover:scale-105 px-8 py-6 text-lg font-semibold"
               onClick={() => scrollToSection('contact')}
             >
-              Get In Touch
+              Let’s Build Something
             </Button>
           </div>
 
@@ -103,7 +83,7 @@ const Hero = () => {
         {/* Image Section */}
         <div className="flex justify-center md:justify-end">
           <img
-            src="/images/gallery/main.jpg"
+            src="/dist/images/gallery/main.jpg"
             alt="Nandini working on robotics"
             className="rounded-2xl shadow-lg max-w-sm md:max-w-md object-cover hover:shadow-[0_0_40px_rgba(247,131,141,0.5)] hover:scale-105 transition-all duration-500"
           />
