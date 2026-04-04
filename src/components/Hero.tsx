@@ -83,7 +83,7 @@ const Hero = () => {
         {/* Image Section */}
         <div className="flex justify-center md:justify-end">
           <img
-            src="/dist/images/gallery/main.jpg"
+            src="/images/gallery/main.jpg"
             alt="Nandini working on robotics"
             className="rounded-2xl shadow-lg max-w-sm md:max-w-md object-cover hover:shadow-[0_0_40px_rgba(247,131,141,0.5)] hover:scale-105 transition-all duration-500"
           />

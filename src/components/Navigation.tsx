@@ -73,7 +73,7 @@ const Navigation = () => {
         >
           <div className="w-8 h-8 rounded-lg overflow-hidden border border-white/20 group-hover:scale-105 transition-all">
              <img
-              src="/dist/images/gallery/logo.jpg"
+              src="/images/gallery/logo.jpg"
               alt="Logo"
               className="w-full h-full object-cover"
             />

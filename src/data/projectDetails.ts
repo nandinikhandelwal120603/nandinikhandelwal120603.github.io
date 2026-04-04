@@ -108,9 +108,9 @@ export const projectDetails: Record<string, ProjectDetail> = {
     ],
     impact: "Eliminated manual tracking by turning a personal problem into a scalable, self-contained operational system.",
     gallery: [
-      "/dist/images/projects/manager-pro/mp1.jpeg",
-      "/dist/images/projects/manager-pro/mp2.jpeg",
-      "/dist/images/projects/manager-pro/mp3.jpeg"
+      "/images/projects/manager-pro/mp1.jpeg",
+      "/images/projects/manager-pro/mp2.jpeg",
+      "/images/projects/manager-pro/mp3.jpeg"
     ]
   },
   "automated-youtuber": {
@@ -153,10 +153,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
     ],
     impact: "6 channels automated with zero manual publishing, demonstrating a scalable production-level architecture.",
     gallery: [
-      "/dist/images/projects/automated-youtuber/y1.jpeg",
-      "/dist/images/projects/automated-youtuber/y2.jpeg",
-      "/dist/images/projects/automated-youtuber/y3.jpeg",
-      "/dist/images/projects/automated-youtuber/y4.jpeg"
+      "/images/projects/automated-youtuber/y1.jpeg",
+      "/images/projects/automated-youtuber/y2.jpeg",
+      "/images/projects/automated-youtuber/y3.jpeg",
+      "/images/projects/automated-youtuber/y4.jpeg"
     ]
   },
   "trading-bot-dashboard": {

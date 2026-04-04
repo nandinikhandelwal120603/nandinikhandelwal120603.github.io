@@ -7,16 +7,16 @@ import { X, ZoomIn } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const galleryImages = [
-  { id: 1, type: 'image', src: '/dist/images/gallery/recognition_1.JPG', alt: 'Winning scholarships', category: 'Awards' },
-  { id: 2, type: 'image', src: '/dist/images/gallery/recognition.JPG', alt: 'Winning for Leadership of 4 years in college', category: 'Awards' },
-  // { id: 3, type: 'image', src: '/dist/images/gallery/robot_3.png', alt: 'Working on multiple autonomous robot in college lab', category: 'Robotics' },
-  // { id: 4, type: 'image', src: '/dist/images/gallery/robot_2.png', alt: 'Working on robot', category: 'Robotics' },
-  // { id: 5, type: 'image', src: '/dist/images/gallery/robot_1.png', alt: 'Working on robot', category: 'Robotics' },
-  { id: 3, type: 'image', src: '/dist/images/gallery/CAD_1.JPG', alt: 'CAD model of robots', category: 'CAD Models' },
-  { id: 4, type: 'image', src: '/dist/images/gallery/CAD_2.JPG', alt: 'CAD model of robots', category: 'CAD Models' },
-  { id: 5, type: 'image', src: '/dist/images/gallery/isro.JPG', alt: 'Life at ISRO', category: 'College Life' },
-  // { id: 9, type: 'image', src: '/dist/images/gallery/stage.png', alt: 'Mentoring juniors for club introduction', category: 'College Life' },
-  { id: 6, type: 'image', src: '/dist/images/gallery/college.jpg', alt: 'Just me <3', category: 'College Life' }
+  { id: 1, type: 'image', src: '/images/gallery/recognition_1.JPG', alt: 'Winning scholarships', category: 'Awards' },
+  { id: 2, type: 'image', src: '/images/gallery/recognition.JPG', alt: 'Winning for Leadership of 4 years in college', category: 'Awards' },
+  // { id: 3, type: 'image', src: '/images/gallery/robot_3.png', alt: 'Working on multiple autonomous robot in college lab', category: 'Robotics' },
+  // { id: 4, type: 'image', src: '/images/gallery/robot_2.png', alt: 'Working on robot', category: 'Robotics' },
+  // { id: 5, type: 'image', src: '/images/gallery/robot_1.png', alt: 'Working on robot', category: 'Robotics' },
+  { id: 3, type: 'image', src: '/images/gallery/CAD_1.JPG', alt: 'CAD model of robots', category: 'CAD Models' },
+  { id: 4, type: 'image', src: '/images/gallery/CAD_2.JPG', alt: 'CAD model of robots', category: 'CAD Models' },
+  { id: 5, type: 'image', src: '/images/gallery/isro.JPG', alt: 'Life at ISRO', category: 'College Life' },
+  // { id: 9, type: 'image', src: '/images/gallery/stage.png', alt: 'Mentoring juniors for club introduction', category: 'College Life' },
+  { id: 6, type: 'image', src: '/images/gallery/college.jpg', alt: 'Just me <3', category: 'College Life' }
 ];
 
 const categories = ['All', 'Awards', 'College Life', 'Robotics', 'CAD Models'];
