@@ -4,7 +4,7 @@
 import { useEffect, useRef, useState } from 'react';
 import {
   FileCode, Brain, Bot, BarChart3,
-  Workflow, Box, Palette, Users
+  Workflow, Box, Palette, Users, Eye
 } from 'lucide-react';
 
 const skillsData = [
@@ -25,7 +25,7 @@ const skillsData = [
   },
   { 
     name: 'Machine Learning & Computer Vision', 
-    icon: Brain, 
+    icon: Eye, 
     description: 'TensorFlow, OpenCV, Keras, MediaPipe, CNN, LSTM' 
   },
   { 

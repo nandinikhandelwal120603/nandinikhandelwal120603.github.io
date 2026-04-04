@@ -13,6 +13,18 @@ const Index = () => {
     // Add smooth scrolling behavior
     document.documentElement.style.scrollBehavior = 'smooth';
     
+    // Handle scroll to hash on initial load
+    const hash = window.location.hash;
+    if (hash) {
+      const id = hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+    
     return () => {
       document.documentElement.style.scrollBehavior = 'auto';
     };
