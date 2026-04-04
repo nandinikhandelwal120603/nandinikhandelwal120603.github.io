@@ -1,0 +1,15 @@
+[build]
+  # The folder where your code lives in the repository
+  base = "kaleido-folio-hub"
+  
+  # The command to build your portfolio
+  command = "npm run build"
+  
+  # The folder Netlify should serve (relative to the base directory)
+  publish = "dist"
+
+[[redirects]]
+  # This ensures your "Project Detail" pages work when you refresh the browser
+  from = "/*"
+  to = "/index.html"
+  status = 200
